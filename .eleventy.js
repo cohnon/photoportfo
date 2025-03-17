@@ -1,3 +1,4 @@
+import { EleventyHtmlBasePlugin } from "@11ty/eleventy";
 import fs from "fs";
 import path from "path";
 
@@ -38,6 +39,8 @@ function getPhotos(dir) {
 }
 
 export default config => {
+    config.addPlugin(EleventyHtmlBasePlugin);
+
     config.addPassthroughCopy({"./src/static": "."});
     config.addWatchTarget("./src/static");
 
@@ -51,4 +54,3 @@ export default config => {
         },
     };
 };
-
