@@ -1,0 +1,18 @@
+---
+layout: base
+pagination: 
+    data: collections.photos
+    size: 1
+    alias: category
+permalink: "/{{ category | slugify }}/index.html"
+---
+
+{% set photos = collections.photos[category] %}
+
+<h1>{{ category }}</h1>
+
+<ul>
+{% for photo in photos %}
+    <li><img src="/{{ photo.url }}" title="{{ photo.name }}" alt="{{ photo.name }}"/></li>
+{% endfor %}
+</ul>

@@ -1,0 +1,9 @@
+{
+  "pagination": {
+    "data": "collections.photos | map(attribute='folder') | unique",
+    "size": 1,
+    "alias": "folder"
+  },
+  "permalink": "/{{ folder }}/index.html",
+  "layout": "category.njk"
+}

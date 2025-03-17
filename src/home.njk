@@ -1,0 +1,12 @@
+---
+layout: base
+permalink: /
+---
+
+<ul>
+{% for category, photos in collections.photos %}
+    <li><a href="/{{ category | slugify }}">
+        <img src="/{{ photos[0].url }}" title="{{ category }}" alt="{{ category }}"/>
+    </a></li>
+{% endfor %}
+</ul>
