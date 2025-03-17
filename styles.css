@@ -12,9 +12,9 @@ body {
 
 header {
     max-width: 2000px;
+    width: 100%;
     margin: 20px auto 10px auto;
     display: flex;
-    align-items: center;
 }
 
 header a {
@@ -83,12 +83,9 @@ main img {
 
 @media (max-width: 600px) {
     body {
-        padding: 1em 0;
+        padding: 0;
     }
-    header {
-        padding: 0 10px;
-    }
-    main {
+    main ul {
         columns: auto 2;
     }
 }
