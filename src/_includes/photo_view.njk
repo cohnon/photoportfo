@@ -1,0 +1,7 @@
+{% macro photo_view(image) %}
+
+<div class="photo">
+    <img src="/{{ image.url }}" alt="{{ image.name }}">
+</div>
+
+{% endmacro %}

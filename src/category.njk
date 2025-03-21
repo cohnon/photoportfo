@@ -7,12 +7,14 @@ pagination:
 permalink: "/{{ category | slugify }}/index.html"
 ---
 
+{% from 'photo_view.njk' import photo_view %}
+
 {% set photos = collections.photos[category] %}
 
 <h1>{{ category }}</h1>
 
 <ul>
 {% for photo in photos %}
-    <li><img src="/{{ photo.url }}" title="{{ photo.name }}" alt="{{ photo.name }}"/></li>
+    <li>{{ photo_view(photo) }}</li>
 {% endfor %}
 </ul>

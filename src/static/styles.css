@@ -24,13 +24,13 @@ header a {
 }
 
 #name {
-    display: inline-block;
     margin-left: 10px;
 }
 
 #name .text {
     overflow: hidden;
     display: inline-block;
+    vertical-align: top;
     animation: typing 3s steps(10, end);
 }
 
@@ -76,9 +76,26 @@ main h1 {
     text-align: center;
 }
 
-main img {
+.photo {
     width: 100%;
     margin-bottom: 3px;
+    overflow: hidden;
+    border: 1px solid black;
+}
+
+.photo img {
+    width: 100%;
+    pointer-events: none;
+    transition: 200ms linear;
+}
+
+.photo:hover {
+    cursor: pointer;
+}
+
+@keyframes test {
+    0% { transform: scale(1); }
+    100% { transform: scale(2); }
 }
 
 @media (max-width: 600px) {

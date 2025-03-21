@@ -3,10 +3,12 @@ layout: base
 permalink: /
 ---
 
+{% from 'photo_view.njk' import photo_view %}
+
 <ul>
 {% for category, photos in collections.photos %}
-    <li><a href="/{{ category | slugify }}">
-        <img src="/{{ photos[0].url }}" title="{{ category }}" alt="{{ category }}"/>
-    </a></li>
+    <li>
+        <a href="/{{ category | slugify }}">{{ photo_view(photos[0]) }}</a>
+    </li>
 {% endfor %}
 </ul>
