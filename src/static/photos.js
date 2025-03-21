@@ -1,17 +1,5 @@
+const modal = document.getElementById("modal");
 const photos = document.querySelectorAll('.photo');
-
-function dist(a, b) {
-    const d = diff(a, b);
-    return Math.sqrt(d.x*d.x + d.y*d.y);
-}
-
-function diff(a, b) {
-    return { x: a.x - b.x, y: a.y - b.y };
-}
-
-function clamp(number, min, max) {
-      return Math.max(min, Math.min(number, max));
-}
 
 photos.forEach(photo => {
     photo.addEventListener('mousemove', e => {
@@ -23,14 +11,14 @@ photos.forEach(photo => {
         const center = { x: rect.width/2, y: rect.height/2 };
 
         const distToCenter = dist(cursor, center);
-        let scaleFactor = rect.height/1.5/distToCenter;
-        scaleFactor = clamp(scaleFactor, 1, 1.2);
-        img.style.scale = `${scaleFactor}`;
+        let scale = 1.1 + (0.25 - (distToCenter/rect.height)/2);
+        scale = Math.max(scale, 1);
+        img.style.scale = `${scale}`;
 
         const offset = diff(center, cursor);
-        offset.x / scaleFactor;
-        offset.y / scaleFactor;
-        img.style.translate = `${offset.x/10}px ${offset.y/10}px`;
+        offset.x *= (scale - 1);
+        offset.y *= (scale - 1);
+        img.style.translate = `${offset.x}px ${offset.y}px`;
     });
 
     photo.addEventListener('mouseleave', e => {
@@ -39,4 +27,35 @@ photos.forEach(photo => {
         img.style.scale = '1';
         img.style.translate = '0 0';
     });
+
+    photo.addEventListener('click', e => {
+        if (e.target.parentNode.nodeName == 'A') {
+            return;
+        }
+        const img = e.target.querySelector('img');
+        const modalImg = modal.querySelector('img');
+
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+
+        modal.style.opacity = '1';
+        modal.style.visibility = 'visible';
+    });
 });
+
+modal.querySelector('button').addEventListener('click', () => {
+    modal.style.opacity = '0';
+    modal.style.visibility = 'hidden';
+});
+
+
+// helper
+function dist(a, b) {
+    const d = diff(a, b);
+    return Math.sqrt(d.x*d.x + d.y*d.y);
+}
+
+function diff(a, b) {
+    return { x: a.x - b.x, y: a.y - b.y };
+}
+
