@@ -71,6 +71,23 @@ main li {
     list-style: none;
 }
 
+main .cat {
+    position: relative;
+}
+
+main .cat p {
+    position: absolute;
+    bottom: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+}
+
+main .cat img {
+    opacity: 0.4;
+}
+
 main h1 {
     font-size: 1em;
     text-align: center;
