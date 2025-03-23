@@ -1,6 +1,17 @@
 const modal = document.getElementById("modal");
 const photos = document.querySelectorAll('.photo');
 
+addEventListener('load', () => {
+    photos.forEach(photo => {
+        const rect = photo.getBoundingClientRect();
+
+        const offset = rect.top/2 + rect.left/6;
+        setTimeout(() => {
+            photo.style.opacity = '1';
+        }, offset);
+    });
+});
+
 photos.forEach(photo => {
     photo.addEventListener('mousemove', e => {
         const img = e.target.querySelector('img');

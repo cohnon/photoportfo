@@ -81,6 +81,7 @@ main h1 {
     margin-bottom: 3px;
     overflow: hidden;
     border: 1px solid black;
+    transition: 1s;
 }
 
 .photo img {
@@ -103,7 +104,7 @@ main h1 {
     background-color: rgba(255, 255, 255, 0.5);
     padding: 10px;
     box-sizing: border-box;
-    transition: 200ms ease;
+    transition: 2000ms ease;
 }
 
 #modal img {
