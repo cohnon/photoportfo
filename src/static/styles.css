@@ -63,7 +63,7 @@ main ul {
     max-width: 2000px;
     margin: 0 auto;
     columns: auto 3;
-    gap: 3px;
+    gap: 1px;
     line-height: 0;
 }
 
@@ -82,10 +82,11 @@ main .cat p {
     transform: translateY(-50%);
     width: 100%;
     text-align: center;
+    pointer-events: none;
 }
 
 main .cat img {
-    opacity: 0.4;
+    opacity: 0.5;
 }
 
 main h1 {
@@ -94,11 +95,14 @@ main h1 {
 }
 
 .photo {
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
     width: 100%;
-    margin-bottom: 3px;
+    margin: 1px 0;
+    box-sizing: border-box;
     overflow: hidden;
-    border: 1px solid black;
-    transition: 1s;
+    transition: 200ms;
 }
 
 .photo img {
@@ -121,7 +125,7 @@ main h1 {
     background-color: rgba(255, 255, 255, 0.5);
     padding: 10px;
     box-sizing: border-box;
-    transition: 2000ms ease;
+    transition: 500ms ease;
 }
 
 #modal img {
@@ -149,6 +153,12 @@ main h1 {
     }
     main ul {
         columns: auto 2;
+    }
+    .photo img {
+        transition: 1000s ease;
+    }
+    header {
+        padding: 0 10px;
     }
 }
 
