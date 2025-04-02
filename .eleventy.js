@@ -12,7 +12,7 @@ function getPhotos(dir) {
         const catStat = fs.statSync(catPath);
 
         if (!catStat.isDirectory()) {
-            console.error("Top level must be directory");
+            return;
         }
 
         results[category] = [];
