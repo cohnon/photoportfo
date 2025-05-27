@@ -6,7 +6,7 @@
   "scripts": {
       "start": "eleventy --watch --serve",
       "serve": "eleventy --serve",
-      "build": "eleventy --pathprefix photoportfo"
+      "build": "eleventy"
   },
   "author": "cohnon",
   "license": "MIT",
